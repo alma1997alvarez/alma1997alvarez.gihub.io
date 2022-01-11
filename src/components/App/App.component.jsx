@@ -1,6 +1,6 @@
 import React from 'react';
 //import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+//import styled, { css } from 'styled-components';
 import videos from '../../mockvideos/youtube-mock-videos.json';
 
 // import AuthProvider from '../../providers/Auth';
@@ -15,7 +15,6 @@ import MainHeader from '../Header';
 import Heading from '../Heading';
 import MainContainer from '../MainContainer';
 import VideosContainer from '../VideosContainer';
-import VideoCard from '../VideoCard';
 
 // const Button = styled.button`
 //   background: transparent;
@@ -33,25 +32,12 @@ import VideoCard from '../VideoCard';
 
 function App() {
   const videosArray = videos.items;
-  console.log(videosArray[0].id);
-
   return (
     <React.Fragment>
-      <MainHeader></MainHeader>
+      <MainHeader />
       <MainContainer>
         <Heading title="Welcome to the challenge!"></Heading>
-        <VideosContainer>
-          {videosArray.map((video) => {
-            return (
-              <VideoCard
-                imgsrc={video.snippet.thumbnails.medium.url}
-                title={video.snippet.title}
-                description={video.snippet.description}
-                key={video.id.videoId}
-              />
-            );
-          })}
-        </VideosContainer>
+        <VideosContainer videos={videosArray} />
       </MainContainer>
     </React.Fragment>
   );
