@@ -1,42 +1,40 @@
 import Heading from './Heading.component';
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from '@jest/globals';
 
 describe('Heading component', () => {
-    it('should display passed title as test', () => {
-        //Arrange
-        render(<Heading title="hello world"/>)
-        const headingElement = screen.getByText('hello world');
-        
-        //Act
-        
+  it('should display passed title as test', () => {
+    //Arrange
+    render(<Heading title="hello world" />);
+    const headingElement = screen.getByText('hello world');
 
-        //Assert
-        expect(headingElement).toBeInTheDocument();
-    })
+    //Act
 
-    it('should be displayed as a heading', () => {
-        //Arrange
-        render(<Heading title="hello world"/>)
-        const headingElement = screen.getByRole('heading');
-        
-        //Act
-        
-        
-        //Assert
-        expect(headingElement).toBeInTheDocument();
-    })
+    //Assert
+    expect(headingElement).toBeInTheDocument();
+  });
 
-    // it('should be displayed as a h1', () => {
-    //     //Arrange
-    //     render(<Heading title="hello world"/>)
-    //     const headingElement = screen.getByText('hello world');
-        
-    //     //Act
-    //     console.log(headingElement.firstChild.)
-        
-    //     //Assert
-    //     expect(headingElement.type).to.equal('h1');
-    // })
-})
+  it('should be displayed as a heading', () => {
+    //Arrange
+    render(<Heading title="hello world" />);
+    const headingElement = screen.getByRole('heading');
 
+    //Act
+
+    //Assert
+    expect(headingElement).toBeInTheDocument();
+  });
+
+  // it('should be displayed as a h1', () => {
+  //     //Arrange
+  //     render(<Heading title="hello world"/>)
+  //     const headingElement = screen.getByText('hello world');
+
+  //     //Act
+  //     console.log(headingElement.firstChild.)
+
+  //     //Assert
+  //     expect(headingElement.type).to.equal('h1');
+  // })
+});
