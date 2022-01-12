@@ -17,19 +17,23 @@ const VideosContainerStyled = styled.section`
 `;
 
 const VideosContainer = ({ videos }) => {
-  const videosArray = videos.items;
+  const videosArray = videos?.items;
   return (
-    <VideosContainerStyled>
-      {videosArray.map((video) => {
-        return (
-          <VideoCard
-            imgsrc={video.snippet.thumbnails.medium.url}
-            title={video.snippet.title}
-            description={video.snippet.description}
-            key={video.id.videoId}
-          />
-        );
-      })}
+    <VideosContainerStyled data-testid="videos-container-component">
+      {videosArray ? (
+        videosArray.map((video) => {
+          return (
+            <VideoCard
+              imgsrc={video.snippet.thumbnails.medium.url}
+              title={video.snippet.title}
+              description={video.snippet.description}
+              key={video.id.videoId}
+            />
+          );
+        })
+      ) : (
+        <></>
+      )}
     </VideosContainerStyled>
   );
 };

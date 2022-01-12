@@ -43,8 +43,8 @@ const VideoDescription = styled.p`
 
 const VideoCard = (props) => {
   return (
-    <VideoCardStyled>
-      <VideoThumbnail src={props.imgsrc} />
+    <VideoCardStyled data-testid="video-card-component">
+      <VideoThumbnail src={props.imgsrc} data-testid="video-card-thumbnail" />
       <VideoTitle>{props.title}</VideoTitle>
       <VideoDescription>{props.description}</VideoDescription>
       {props.children}

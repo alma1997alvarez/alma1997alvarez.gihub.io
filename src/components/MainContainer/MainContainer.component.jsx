@@ -14,7 +14,11 @@ const MainContainerStyled = styled.section`
 `;
 
 const MainContainer = (props) => {
-  return <MainContainerStyled>{props.children}</MainContainerStyled>;
+  return (
+    <MainContainerStyled data-testid="main-container-component">
+      {props.children}
+    </MainContainerStyled>
+  );
 };
 
 export default MainContainer;

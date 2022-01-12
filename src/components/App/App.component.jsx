@@ -13,7 +13,7 @@ function App() {
     <React.Fragment>
       <MainHeader />
       <MainContainer>
-        <Heading title="Welcome to the challenge!"></Heading>
+        <Heading title="Welcome to the challenge" />
         <VideosContainer videos={videos} />
       </MainContainer>
     </React.Fragment>

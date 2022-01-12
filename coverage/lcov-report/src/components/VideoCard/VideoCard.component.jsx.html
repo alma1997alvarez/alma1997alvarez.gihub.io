@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -36,16 +36,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -54,7 +54,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -115,7 +115,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -130,7 +130,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,24 +138,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -170,7 +170,7 @@
 //import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 &nbsp;
-const VideoCardStyled = <span class="cstat-no" title="statement not covered" >styled.article`</span>
+const VideoCardStyled = styled.article`
   background: transparent;
   height: auto;
   padding: 0;
@@ -185,7 +185,7 @@ const VideoCardStyled = <span class="cstat-no" title="statement not covered" >st
   }
 `;
 &nbsp;
-const VideoThumbnail = <span class="cstat-no" title="statement not covered" >styled.img`</span>
+const VideoThumbnail = styled.img`
   border-radius: 0.3rem 0.3rem 0 0;
   border: none;
   background: #b5dec4;
@@ -193,26 +193,26 @@ const VideoThumbnail = <span class="cstat-no" title="statement not covered" >sty
   max-height: 250px;
   overflow: hidden;
   width: 100%;
-  src: url(${<span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; <span class="cstat-no" title="statement not covered" >props.src}</span>);
+  src: url(${(props) =&gt; props.src});
 `;
 &nbsp;
-const VideoTitle = <span class="cstat-no" title="statement not covered" >styled.h4`</span>
+const VideoTitle = styled.h4`
   margin: 0.5rem 0;
   padding: 0 8px;
   color: #242323;
   font-weight: 600;
 `;
-const VideoDescription = <span class="cstat-no" title="statement not covered" >styled.p`</span>
+const VideoDescription = styled.p`
   padding: 0 8px;
   color: #3a3a3a;
   font-weight: 300;
   font-size: 0.8rem;
 `;
 &nbsp;
-const VideoCard = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;VideoCardStyled&gt;
-      &lt;VideoThumbnail src={props.imgsrc} /&gt;
+const VideoCard = (props) =&gt; {
+  return (
+    &lt;VideoCardStyled data-testid="video-card-component"&gt;
+      &lt;VideoThumbnail src={props.imgsrc} data-testid="video-card-thumbnail" /&gt;
       &lt;VideoTitle&gt;{props.title}&lt;/VideoTitle&gt;
       &lt;VideoDescription&gt;{props.description}&lt;/VideoDescription&gt;
       {props.children}
@@ -228,7 +228,7 @@ export default VideoCard;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Jan 12 2022 14:46:49 GMT-0600 (Central Standard Time)
+                at Wed Jan 12 2022 17:12:07 GMT-0600 (Central Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

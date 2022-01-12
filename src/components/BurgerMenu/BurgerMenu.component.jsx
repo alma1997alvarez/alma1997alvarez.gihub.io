@@ -24,10 +24,10 @@ const BurgerLine = styled.div`
 
 const BurgerMenu = () => {
   return (
-    <BurgerContainer title="burger-menu-container">
-      <BurgerLine />
-      <BurgerLine />
-      <BurgerLine />
+    <BurgerContainer data-testid="burger-menu-container">
+      <BurgerLine data-testid="burger-line" />
+      <BurgerLine data-testid="burger-line" />
+      <BurgerLine data-testid="burger-line" />
     </BurgerContainer>
   );
 };
