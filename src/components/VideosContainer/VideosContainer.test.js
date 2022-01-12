@@ -6,7 +6,9 @@ describe('VideosContainer component', () => {
   it('should be rendered as a div', () => {
     //Arrange
     render(<VideosContainer />);
-    const VideosContainerElement = screen.getByTestId('videos-container-component');
+    const VideosContainerElement = screen.getByTestId(
+      'videos-container-component'
+    );
 
     //Act
 

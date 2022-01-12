@@ -17,11 +17,10 @@ const VideosContainerStyled = styled.section`
 `;
 
 const VideosContainer = ({ videos }) => {
-  const videosArray = videos?.items;
   return (
     <VideosContainerStyled data-testid="videos-container-component">
-      {videosArray ? (
-        videosArray.map((video) => {
+      {videos.items ? (
+        videos.items.map((video) => {
           return (
             <VideoCard
               imgsrc={video.snippet.thumbnails.medium.url}

@@ -16,7 +16,7 @@ describe('VideoCard component', () => {
 
   it('should display the passed title', () => {
     //Arrange
-    render(<VideoCard title="hello world"/>);
+    render(<VideoCard title="hello world" />);
     const VideoCardElement = screen.getByText('hello world');
 
     //Act
@@ -27,7 +27,7 @@ describe('VideoCard component', () => {
 
   it('should display the passed description', () => {
     //Arrange
-    render(<VideoCard description="test description"/>);
+    render(<VideoCard description="test description" />);
     const VideoCardElement = screen.getByTestId('video-card-component');
 
     //Act
@@ -38,7 +38,9 @@ describe('VideoCard component', () => {
 
   it('should display the passed image url', () => {
     //Arrange
-    render(<VideoCard imgsrc="https://static.vecteezy.com/packs/media/components/global/search-explore-nav/img/vectors/term-bg-1-666de2d941529c25aa511dc18d727160.jpg"/>);
+    render(
+      <VideoCard imgsrc="https://static.vecteezy.com/packs/media/components/global/search-explore-nav/img/vectors/term-bg-1-666de2d941529c25aa511dc18d727160.jpg" />
+    );
     const VideoCardThumbnail = screen.getByTestId('video-card-thumbnail');
 
     //Act
