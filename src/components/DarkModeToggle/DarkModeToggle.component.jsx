@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const DarkModeText = styled.span`
+  color: #242323;
   @media (max-width: 715px) {
     display: none;
   }

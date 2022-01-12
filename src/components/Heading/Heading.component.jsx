@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeadingH1 = styled.h1`
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', 'sans-serif';
   font-size: 2rem;
   font-weight: 700px;
   text-align: center;
@@ -19,7 +19,7 @@ const HeadingH1 = styled.h1`
 `;
 
 const Heading = (props) => {
-  return <HeadingH1>{props.title}</HeadingH1>;
+  return <HeadingH1 role="heading">{props.title}</HeadingH1>;
 };
 
 export default Heading;

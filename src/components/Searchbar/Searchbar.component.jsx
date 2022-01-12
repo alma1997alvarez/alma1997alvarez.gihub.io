@@ -1,6 +1,7 @@
 import React from 'react';
 //import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
+
 const SearchbarInput = styled.input`
   margin: 1rem auto 1rem 1rem;
   font-family: 'Poppins';

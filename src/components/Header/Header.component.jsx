@@ -14,12 +14,12 @@ const Header = styled.header`
   min-height: 60px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex;
 `;
 
 const MainHeader = () => {
   return (
-    <Header>
+    <Header role="header">
       <BurgerMenu />
       <Searchbar />
       <DarkModeToggle />

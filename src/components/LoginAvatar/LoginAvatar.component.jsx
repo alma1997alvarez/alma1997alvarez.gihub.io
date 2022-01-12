@@ -13,9 +13,12 @@ const AvatarImg = styled.img`
   }
 `;
 
-const LoginAvatar = () => {
+const LoginAvatar = (props) => {
   return (
-    <AvatarImg src={defaultAvatar} alt="logged in avatar image"></AvatarImg>
+    <AvatarImg
+      src={props.avatarUrl ? props.avatarUrl : defaultAvatar}
+      alt="logged in user image"
+    ></AvatarImg>
   );
 };
 

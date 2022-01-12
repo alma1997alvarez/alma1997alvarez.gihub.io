@@ -24,13 +24,11 @@ const BurgerLine = styled.div`
 
 const BurgerMenu = () => {
   return (
-    <React.Fragment>
-      <BurgerContainer>
-        <BurgerLine />
-        <BurgerLine />
-        <BurgerLine />
-      </BurgerContainer>
-    </React.Fragment>
+    <BurgerContainer title="burger-menu-container">
+      <BurgerLine />
+      <BurgerLine />
+      <BurgerLine />
+    </BurgerContainer>
   );
 };
 
