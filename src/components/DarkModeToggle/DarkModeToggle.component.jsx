@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const DarkModeText = styled.span`
-  @media (max-width: 630px) {
+  @media (max-width: 715px) {
     display: none;
   }
 `;
@@ -14,7 +14,7 @@ const ToggleContainer = styled.div`
   margin: 0 1rem;
   cursor: pointer;
 
-  @media (max-width: 630px) {
+  @media (max-width: 715px) {
     display: none;
   }
 `;

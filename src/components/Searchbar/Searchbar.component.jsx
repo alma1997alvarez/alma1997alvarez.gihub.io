@@ -2,13 +2,13 @@ import React from 'react';
 //import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 const SearchbarInput = styled.input`
+  margin: 1rem auto 1rem 1rem;
   font-family: 'Poppins';
   background: #b0a2c7;
   padding: 0.25em 1em;
   height: 3vh;
   min-height: 30px;
-  min-width: 400px;
-  width: 20vw;
+  width: 300px;
   border-radius: 0.5em;
   border: none;
   transition: background-color 0.5s ease;
@@ -22,9 +22,9 @@ const SearchbarInput = styled.input`
     outline: none;
   }
 
-  @media (max-width: 630px) {
-    width: 85vw;
-    min-width: auto;
+  @media (max-width: 715px) {
+    width: 82vw;
+    margin: 1rem 2vw;
   }
 `;
 

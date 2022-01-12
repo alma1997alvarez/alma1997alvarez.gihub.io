@@ -7,10 +7,11 @@ const BurgerContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 35px;
-  margin-right: 0.25rem;
+  margin: 1rem;
 
-  @media (max-width: 630px) {
+  @media (max-width: 715px) {
     width: 10vw;
+    margin: 1rem 2vw;
   }
 `;
 

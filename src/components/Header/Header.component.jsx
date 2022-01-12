@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Searchbar from '../Searchbar';
 import DarkModeToggle from '../DarkModeToggle';
 import BurgerMenu from '../BurgerMenu';
+import LoginAvatar from '../LoginAvatar';
 
 const Header = styled.header`
   background: #c4b5de;
@@ -13,6 +14,7 @@ const Header = styled.header`
   min-height: 60px;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 `;
 
 const MainHeader = () => {
@@ -21,6 +23,7 @@ const MainHeader = () => {
       <BurgerMenu />
       <Searchbar />
       <DarkModeToggle />
+      <LoginAvatar />
     </Header>
   );
 };
