@@ -21,7 +21,6 @@ const MainHeader = () => {
       <BurgerMenu />
       <Searchbar />
       <DarkModeToggle />
-      <span>Dark Mode</span>
     </Header>
   );
 };

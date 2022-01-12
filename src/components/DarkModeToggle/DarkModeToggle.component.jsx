@@ -2,11 +2,21 @@ import React from 'react';
 //import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
+const DarkModeText = styled.span`
+  @media (max-width: 630px) {
+    display: none;
+  }
+`;
+
 //Most of the below styling for the toggle was obtained from https://codepen.io/PaulinaSurazynska/pen/bGVpBOb, modified to fit with this project
 
 const ToggleContainer = styled.div`
   margin: 0 1rem;
   cursor: pointer;
+
+  @media (max-width: 630px) {
+    display: none;
+  }
 `;
 
 const DarkModeInput = styled.input`
@@ -50,12 +60,15 @@ const DarkModeBall = styled.div`
 
 const DarkModeToggle = () => {
   return (
-    <ToggleContainer>
-      <DarkModeInput type="checkbox" id="darkmode" />
-      <DarkModeLabel htmlFor="darkmode">
-        <DarkModeBall />
-      </DarkModeLabel>
-    </ToggleContainer>
+    <React.Fragment>
+      <ToggleContainer>
+        <DarkModeInput type="checkbox" id="darkmode" />
+        <DarkModeLabel htmlFor="darkmode">
+          <DarkModeBall />
+        </DarkModeLabel>
+      </ToggleContainer>
+      <DarkModeText>Dark mode</DarkModeText>
+    </React.Fragment>
   );
 };
 

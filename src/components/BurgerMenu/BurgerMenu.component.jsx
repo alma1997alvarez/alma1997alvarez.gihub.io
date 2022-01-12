@@ -8,6 +8,10 @@ const BurgerContainer = styled.div`
   flex-direction: column;
   width: 35px;
   margin-right: 0.25rem;
+
+  @media (max-width: 630px) {
+    width: 10vw;
+  }
 `;
 
 const BurgerLine = styled.div`

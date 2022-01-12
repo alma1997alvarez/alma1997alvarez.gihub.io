@@ -21,6 +21,11 @@ const SearchbarInput = styled.input`
   &:focus {
     outline: none;
   }
+
+  @media (max-width: 630px) {
+    width: 85vw;
+    min-width: auto;
+  }
 `;
 
 const Searchbar = () => {
