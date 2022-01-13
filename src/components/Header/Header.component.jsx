@@ -7,7 +7,7 @@ import DarkModeToggle from '../DarkModeToggle';
 import BurgerMenu from '../BurgerMenu';
 import LoginAvatar from '../LoginAvatar';
 
-const Header = styled.header`
+const HeaderStyled = styled.header`
   background: #c4b5de;
   padding: 0.25em 0.25em;
   height: 5vh;
@@ -17,15 +17,15 @@ const Header = styled.header`
   justify-content: flex;
 `;
 
-const MainHeader = () => {
+const Header = () => {
   return (
-    <Header role="header">
+    <HeaderStyled role="header">
       <BurgerMenu />
       <Searchbar />
       <DarkModeToggle />
       <LoginAvatar />
-    </Header>
+    </HeaderStyled>
   );
 };
 
-export default MainHeader;
+export default Header;
