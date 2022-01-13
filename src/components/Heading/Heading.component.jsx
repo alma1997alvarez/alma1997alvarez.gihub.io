@@ -2,7 +2,7 @@ import React from 'react';
 //import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-const HeadingH1 = styled.h1`
+const Title = styled.h1`
   font-family: 'Montserrat', 'sans-serif';
   font-size: 2rem;
   font-weight: 700px;
@@ -19,7 +19,7 @@ const HeadingH1 = styled.h1`
 `;
 
 const Heading = (props) => {
-  return <HeadingH1 role="heading">{props.title}</HeadingH1>;
+  return <Title role="heading">{props.title}</Title>;
 };
 
 export default Heading;
