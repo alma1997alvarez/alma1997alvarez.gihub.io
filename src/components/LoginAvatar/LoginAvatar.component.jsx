@@ -1,17 +1,7 @@
 import React from 'react';
 //import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import styled from 'styled-components';
 import defaultAvatar from '../../assets/defaultavatar.jpeg';
-
-const AvatarImg = styled.img`
-  width: 40px;
-  border-radius: 20px;
-  margin: 1rem;
-
-  @media (max-width: 715px) {
-    display: none;
-  }
-`;
+import { AvatarImg } from './LoginAvatar.styled';
 
 const LoginAvatar = (props) => {
   return (
