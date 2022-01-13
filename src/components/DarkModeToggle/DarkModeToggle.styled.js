@@ -57,4 +57,10 @@ const DarkModeBall = styled.div`
   cursor: pointer;
 `;
 
-export { DarkModeBall, DarkModeLabel, DarkModeInput, DarkModeText, ToggleContainer }
+export {
+  DarkModeBall,
+  DarkModeLabel,
+  DarkModeInput,
+  DarkModeText,
+  ToggleContainer,
+};

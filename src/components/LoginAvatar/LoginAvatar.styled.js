@@ -10,4 +10,4 @@ const AvatarImg = styled.img`
   }
 `;
 
-export {AvatarImg}
+export { AvatarImg };

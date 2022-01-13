@@ -16,4 +16,4 @@ const Title = styled.h1`
   }
 `;
 
-export {Title}
+export { Title };

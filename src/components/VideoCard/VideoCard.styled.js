@@ -40,4 +40,4 @@ const VideoDescription = styled.p`
   font-size: 0.8rem;
 `;
 
-export { VideoCardStyled, VideoThumbnail, VideoTitle, VideoDescription }
+export { VideoCardStyled, VideoThumbnail, VideoTitle, VideoDescription };

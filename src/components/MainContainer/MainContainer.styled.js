@@ -11,4 +11,4 @@ const MainContainerStyled = styled.section`
   align-items: center;
 `;
 
-export { MainContainerStyled }
+export { MainContainerStyled };

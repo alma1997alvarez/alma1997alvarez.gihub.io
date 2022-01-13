@@ -10,4 +10,4 @@ const HeaderStyled = styled.header`
   justify-content: flex;
 `;
 
-export {HeaderStyled}
+export { HeaderStyled };

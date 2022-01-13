@@ -27,4 +27,4 @@ const SearchbarInput = styled.input`
   }
 `;
 
-export { SearchbarInput }
+export { SearchbarInput };
