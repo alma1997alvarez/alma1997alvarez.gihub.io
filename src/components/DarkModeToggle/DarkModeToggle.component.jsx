@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 //import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { ThemeContext } from '../../context/theme-context';
 import {
   DarkModeBall,
   DarkModeLabel,
@@ -9,15 +10,32 @@ import {
 } from './DarkModeToggle.styled';
 
 const DarkModeToggle = () => {
+  const theme = useContext(ThemeContext);
+  const { state: { darkMode = false } = {}, dispatch = () => {} } = theme;
+
+  const onClickHandler = () => {
+    if (darkMode) {
+      dispatch({ type: 'LIGHTMODE' });
+    } else {
+      dispatch({ type: 'DARKMODE' });
+    }
+  };
+
   return (
     <React.Fragment>
       <ToggleContainer>
-        <DarkModeInput type="checkbox" id="darkmode" />
+        <DarkModeInput
+          type="checkbox"
+          id="darkmode"
+          onClick={() => {
+            onClickHandler();
+          }}
+        />
         <DarkModeLabel htmlFor="darkmode">
           <DarkModeBall />
         </DarkModeLabel>
       </ToggleContainer>
-      <DarkModeText>Dark mode</DarkModeText>
+      <DarkModeText>{darkMode ? 'Go light' : 'Go dark'}</DarkModeText>
     </React.Fragment>
   );
 };

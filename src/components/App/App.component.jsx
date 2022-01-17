@@ -1,77 +1,57 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
+import SearchContext from '../../context/search-context';
+import CurrentVideoContext from '../../context/current-video-context';
+import { ThemeContext } from '../../context/theme-context';
 //import { BrowserRouter, Switch, Route } from 'react-router-dom';
-<<<<<<< HEAD
-import styled, { css } from 'styled-components';
-import videos from '../../mockvideos/youtube-mock-videos.json';
 
-// import AuthProvider from '../../providers/Auth';
-// import HomePage from '../../pages/Home';
-// import LoginPage from '../../pages/Login';
-// import NotFound from '../../pages/NotFound';
-// import Private from '../Private';
-// import Fortune from '../Fortune';
-// import Layout from '../Layout';
-// import { random } from '../../utils/fns';
-import MainHeader from '../Header';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from '../globalStyles';
+import { lightTheme, darkTheme } from '../../Themes';
+
+import Header from '../Header';
 import Heading from '../Heading';
 import MainContainer from '../MainContainer';
 import VideosContainer from '../VideosContainer';
-import VideoCard from '../VideoCard';
-
-// const Button = styled.button`
-//   background: transparent;
-//   border-radius: 3px;
-//   border: 2px solid palevioletred;
-//   color: palevioletred;
-//   margin: 0.5em 1em;
-//   padding: 0.25em 1em;
-
-//   ${props => props.primary && css`
-//     background: palevioletred;
-//     color: white;
-//   `}
-// `;
+import VideoDetailsView from '../VideoDetailsView';
 
 function App() {
-  const videosArray = videos.items;
-  console.log(videosArray[0].id);
-=======
+  const theme = useContext(ThemeContext);
+  const { state: { darkMode = false } = {} } = theme;
 
-import videos from '../../mockvideos/youtube-mock-videos.json';
+  const [searchQuery, setSearchQuery] = useState('wizeline');
+  const value = { searchQuery, setSearchQuery };
 
-import MainHeader from '../Header';
-import Heading from '../Heading';
-import MainContainer from '../MainContainer';
-import VideosContainer from '../VideosContainer';
->>>>>>> e81060cd1a13e86d847da4358d180a11b5f231fb
+  const [isActive, setIsActive] = useState(false);
 
-function App() {
+  const [videoDetails, setVideoDetails] = useState({
+    id: '',
+    title: '',
+    description: '',
+    relatedVideos: [],
+  });
+
+  const videoValue = {
+    isActive,
+    setIsActive,
+    videoDetails,
+    setVideoDetails,
+  };
   return (
-    <React.Fragment>
-<<<<<<< HEAD
-      <MainHeader></MainHeader>
-      <MainContainer>
-        <Heading title="Welcome to the challenge!"></Heading>
-        <VideosContainer>
-          {videosArray.map((video) => {
-            return (
-              <VideoCard
-                imgsrc={video.snippet.thumbnails.medium.url}
-                title={video.snippet.title}
-                description={video.snippet.description}
-                key={video.id.videoId}
-              />
-            );
-          })}
-        </VideosContainer>
-=======
-      <MainHeader />
-      <MainContainer>
-        <Heading title="Welcome to the challenge" />
-        <VideosContainer videos={videos} />
->>>>>>> e81060cd1a13e86d847da4358d180a11b5f231fb
-      </MainContainer>
-    </React.Fragment>
+    <ThemeProvider theme={darkMode === false ? lightTheme : darkTheme}>
+      <>
+        <GlobalStyles />
+        <CurrentVideoContext.Provider value={videoValue}>
+          <SearchContext.Provider value={value}>
+            <Header />
+            <MainContainer>
+              {!isActive && <Heading title="Welcome to the challenge!" />}
+              {!isActive && <VideosContainer />}
+              {isActive && <VideoDetailsView />}
+            </MainContainer>
+          </SearchContext.Provider>
+        </CurrentVideoContext.Provider>
+      </>
+    </ThemeProvider>
   );
 }
 
