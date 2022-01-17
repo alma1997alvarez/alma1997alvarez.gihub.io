@@ -16,7 +16,7 @@ import VideoDetailsView from '../VideoDetailsView';
 
 function App() {
   const theme = useContext(ThemeContext);
-  const darkMode = theme.state.darkMode;
+  const { state: { darkMode = false } = {} } = theme;
 
   const [searchQuery, setSearchQuery] = useState('wizeline');
   const value = { searchQuery, setSearchQuery };

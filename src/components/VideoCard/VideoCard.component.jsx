@@ -10,11 +10,18 @@ import {
 
 const VideoCard = (props) => {
   const currentVideoContext = React.useContext(CurrentVideoContext);
+  const {
+    id = '',
+    title = '',
+    description = '',
+    imgsrc = '',
+    displayDescription = true,
+  } = props;
   const onClickHandler = () => {
     currentVideoContext.setVideoDetails({
-      id: props.id,
-      title: props.title,
-      description: props.description,
+      id: id,
+      title: title,
+      description: description,
     });
     currentVideoContext.setIsActive(true);
   };
@@ -23,12 +30,12 @@ const VideoCard = (props) => {
     <VideoCardStyled
       data-testid="video-card-component"
       onClick={onClickHandler}
-      id={props.id}
+      id={id}
     >
-      <VideoThumbnail src={props.imgsrc} data-testid="video-card-thumbnail" />
-      <VideoTitle>{props.title}</VideoTitle>
-      {props.displayDescription ? (
-        <VideoDescription>{props.description}</VideoDescription>
+      <VideoThumbnail src={imgsrc} data-testid="video-card-thumbnail" />
+      <VideoTitle>{title}</VideoTitle>
+      {displayDescription ? (
+        <VideoDescription>{description}</VideoDescription>
       ) : null}
       {props.children}
     </VideoCardStyled>

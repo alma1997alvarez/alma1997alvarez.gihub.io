@@ -16,7 +16,7 @@ const VideoRecommendationsList = () => {
   if (recommendedVideos.items && videosList.length > 0) {
     //    console.log('in recommended return');
     return (
-      <VideoRecommendationsContainer>
+      <VideoRecommendationsContainer data-testid="video-recommendations-list">
         {videosList}
       </VideoRecommendationsContainer>
     );

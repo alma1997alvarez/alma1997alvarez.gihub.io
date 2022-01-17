@@ -22,30 +22,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
@@ -54,7 +54,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -90,24 +90,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -118,24 +118,24 @@ import useFetchYoutubeVideos from '../../hooks/useFetchYoutubeVideos';
 import usePopulateVideoCards from '../../hooks/usePopulateVideoCards';
 import { VideoRecommendationsContainer } from './VideoRecommendationsList.styled';
 &nbsp;
-const VideoRecommendationsList = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-  const currentVideoContext = <span class="cstat-no" title="statement not covered" >useContext(CurrentVideoContext);</span>
-  const recommendedVideos = <span class="cstat-no" title="statement not covered" >useFetchYoutubeVideos({</span>
+const VideoRecommendationsList = () =&gt; {
+  const currentVideoContext = useContext(CurrentVideoContext);
+  const recommendedVideos = useFetchYoutubeVideos({
     related: true,
     relatedToId: currentVideoContext.videoDetails.id,
   });
 &nbsp;
-  const videosList = <span class="cstat-no" title="statement not covered" >usePopulateVideoCards(recommendedVideos, false);</span>
+  const videosList = usePopulateVideoCards(recommendedVideos, false);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (recommendedVideos.items &amp;&amp; videosList.length &gt; 0) {</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (recommendedVideos.items &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >videosList.length &gt; 0)</span> {
     //    console.log('in recommended return');
 <span class="cstat-no" title="statement not covered" >    return (</span>
-      &lt;VideoRecommendationsContainer&gt;
+      &lt;VideoRecommendationsContainer data-testid="video-recommendations-list"&gt;
         {videosList}
       &lt;/VideoRecommendationsContainer&gt;
     );
   } else {
-<span class="cstat-no" title="statement not covered" >    return &lt;&gt;&lt;/&gt;;</span>
+    return &lt;&gt;&lt;/&gt;;
   }
 };
 &nbsp;
@@ -147,7 +147,7 @@ export default VideoRecommendationsList;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jan 17 2022 12:25:26 GMT-0600 (Central Standard Time)
+                at Mon Jan 17 2022 17:22:40 GMT-0600 (Central Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

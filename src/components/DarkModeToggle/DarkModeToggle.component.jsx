@@ -11,13 +11,13 @@ import {
 
 const DarkModeToggle = () => {
   const theme = useContext(ThemeContext);
-  const darkMode = theme.state.darkMode;
+  const { state: { darkMode = false } = {}, dispatch = () => {} } = theme;
 
   const onClickHandler = () => {
     if (darkMode) {
-      theme.dispatch({ type: 'LIGHTMODE' });
+      dispatch({ type: 'LIGHTMODE' });
     } else {
-      theme.dispatch({ type: 'DARKMODE' });
+      dispatch({ type: 'DARKMODE' });
     }
   };
 

@@ -5,7 +5,7 @@ import { VideoDetailsViewStyled } from './VideoDetailsView.styled';
 
 const VideoDetailsView = () => {
   return (
-    <VideoDetailsViewStyled>
+    <VideoDetailsViewStyled data-testid="video-details-view">
       <VideoDetailsCard />
       <VideoRecommendationsList />
     </VideoDetailsViewStyled>
