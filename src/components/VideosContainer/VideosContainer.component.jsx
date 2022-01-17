@@ -1,26 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 //import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import VideoCard from '../VideoCard';
 import { VideosContainerStyled } from './VideosContainer.styled';
+import useFetchYoutubeVideos from '../../hooks/useFetchYoutubeVideos';
+import usePopulateVideoCards from '../../hooks/usePopulateVideoCards';
+import SearchContext from '../../context/search-context';
 
-const VideosContainer = ({ videos }) => {
+const VideosContainer = () => {
+  const searchContext = useContext(SearchContext);
+
+  const videosList = useFetchYoutubeVideos({
+    queryString: searchContext.searchQuery,
+    related: false,
+  });
+
+  const videoCards = usePopulateVideoCards(videosList);
+
   return (
-    <VideosContainerStyled data-testid="videos-container-component">
-      {videos.items ? (
-        videos.items.map((video) => {
-          return (
-            <VideoCard
-              imgsrc={video.snippet.thumbnails.medium.url}
-              title={video.snippet.title}
-              description={video.snippet.description}
-              key={video.id.videoId}
-            />
-          );
-        })
-      ) : (
-        <></>
-      )}
-    </VideosContainerStyled>
+    <>
+      <VideosContainerStyled data-testid="videos-container-component">
+        {videoCards}
+      </VideosContainerStyled>
+    </>
   );
 };
 
