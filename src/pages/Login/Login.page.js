@@ -1,21 +1,26 @@
 import React from 'react';
-//import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../Providers/Auth';
 import loginApi from './Login.api';
 import Heading from '../../components/Heading';
 
 function LoginPage() {
   const { login } = useAuth();
-  //const history = useHistory();
+  const history = useHistory();
 
-  function authenticate(event) {
-    event.preventDefault();
-    const attemptedLogin = loginApi(
-      event.target.username.value,
-      event.target.password.value
-    );
-    console.log(attemptedLogin);
-    login();
+  async function authenticate(event) {
+    try {
+      event.preventDefault();
+      const attemptedLogin = await loginApi(
+        event.target.username.value,
+        event.target.password.value
+      );
+      console.log(attemptedLogin);
+      login();
+      history.push('/');
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 
   return (
