@@ -32,7 +32,8 @@ body {
   padding: 0.4rem;
 }
 
-button, a {
+button,
+ a {
   font-family: Montserrat, sans-serif;
 }
 
