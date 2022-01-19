@@ -1,12 +1,12 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../Providers/Auth';
 import loginApi from './Login.api';
 import Heading from '../../components/Heading';
 
 function LoginPage() {
   const { login } = useAuth();
-  const history = useHistory();
+  //const history = useHistory();
 
   function authenticate(event) {
     event.preventDefault();
