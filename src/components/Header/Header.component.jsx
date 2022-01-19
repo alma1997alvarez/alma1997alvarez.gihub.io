@@ -11,7 +11,6 @@ const Header = () => {
   const sessionDetailsContext = useContext(SessionDetailsContext);
   const { sessionDetails: { name = '', avatarUrl = '' } = {} } =
     sessionDetailsContext;
-  console.log(avatarUrl);
   return (
     <HeaderStyled role="header">
       <BurgerMenu />
