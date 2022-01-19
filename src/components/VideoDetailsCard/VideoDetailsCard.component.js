@@ -4,6 +4,7 @@ import {
   VideoDetailsIframe,
   VideoDetailsCardStyled,
 } from './VideoDetailsCard.styled';
+import Button from '../Button/Button.component';
 
 const VideoDetailsCard = ({ videoId }) => {
   const currentVideoContext = useContext(CurrentVideoContext);
@@ -20,6 +21,7 @@ const VideoDetailsCard = ({ videoId }) => {
       ></VideoDetailsIframe>
       <h1>{title}</h1>
       <p>{description}</p>
+      <Button>Add to favourites</Button>
     </VideoDetailsCardStyled>
   );
 };

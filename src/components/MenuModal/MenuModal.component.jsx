@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 //import { useHistory } from 'react-router-dom';
 import { MenuContainer, NavItem } from './MenuModal.styled';
-import { AUTH_STORAGE_KEY } from '../../utils/constants';
 import { useAuth } from '../../Providers/Auth';
+import SessionDetailsContext from '../../context/session-details-context';
 
 const MenuModal = () => {
+  const sessionDetailsContext = useContext(SessionDetailsContext);
+  const {
+    sessionDetails: { id = '' },
+    setSessionDetails,
+  } = sessionDetailsContext;
   const { logout } = useAuth();
-  const authenticated = localStorage.getItem(AUTH_STORAGE_KEY);
+  const [authenticated, setAuthenticated] = useState(id);
 
   const logoutHandler = () => {
     logout();
-    console.log(authenticated);
+    setSessionDetails({ id: '', name: '', avatarUrl: '' });
+    setAuthenticated(false);
   };
   return (
     <MenuContainer>
       <NavItem>Home</NavItem>
-      <NavItem>Favourites</NavItem>
-      <NavItem onClick={logoutHandler}>Logout</NavItem>
+      {authenticated ? (
+        <>
+          <NavItem>Favourites</NavItem>
+          <NavItem onClick={logoutHandler}>Logout</NavItem>
+        </>
+      ) : null}
     </MenuContainer>
   );
 };

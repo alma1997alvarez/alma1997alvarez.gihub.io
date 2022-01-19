@@ -14,4 +14,14 @@ export const GlobalStyles = createGlobalStyle`
   p {
     color: ${({ theme }) => theme.para};
   }
+
+  button {
+    background: ${({ theme }) => theme.buttonBackground};
+    color: ${({ theme }) => theme.text};
+    border:none;
+  }
+
+  button:hover {
+    background: ${({ theme }) => theme.buttonHoverBackground};
+  }
   `;

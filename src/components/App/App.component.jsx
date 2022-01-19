@@ -38,7 +38,7 @@ function App() {
   const [sessionDetails, setSessionDetails] = useState({
     id: '',
     name: '',
-    avatar: '',
+    avatarUrl: '',
   });
   const sessionValue = {
     sessionDetails,

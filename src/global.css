@@ -41,3 +41,7 @@ a {
 a:active {
   color: blueviolet;
 }
+
+button, a {
+  font-family: Montserrat, sans-serif;
+}
