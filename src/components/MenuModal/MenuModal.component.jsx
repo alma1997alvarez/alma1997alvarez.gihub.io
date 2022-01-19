@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import { MenuContainer, NavItem } from './MenuModal.styled';
 import { AUTH_STORAGE_KEY } from '../../utils/constants';
 import { useAuth } from '../../Providers/Auth';
