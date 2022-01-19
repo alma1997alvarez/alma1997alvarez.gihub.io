@@ -9,7 +9,7 @@ import SessionDetailsContext from '../../context/session-details-context';
 
 const Header = () => {
   const sessionDetailsContext = useContext(SessionDetailsContext);
-  const { sessionDetails: { id = '', name = '', avatarUrl = '' } = {} } =
+  const { sessionDetails: { name = '', avatarUrl = '' } = {} } =
     sessionDetailsContext;
   console.log(avatarUrl);
   return (
