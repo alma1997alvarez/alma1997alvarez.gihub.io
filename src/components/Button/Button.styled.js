@@ -6,6 +6,7 @@ const StyledButton = styled.button`
   font-size: 1rem;
   font-weight: 700;
   padding: 1rem;
+  font-family: Montserrat, sans-serif;
 `;
 
 export { StyledButton };
