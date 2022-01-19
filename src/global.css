@@ -32,6 +32,10 @@ body {
   padding: 0.4rem;
 }
 
+button, a {
+  font-family: Montserrat, sans-serif;
+}
+
 a {
   text-decoration: none;
   font-weight: bold;
@@ -40,8 +44,4 @@ a {
 
 a:active {
   color: blueviolet;
-}
-
-button, a {
-  font-family: Montserrat, sans-serif;
 }
