@@ -1,8 +1,9 @@
 import React, { useState, useContext } from 'react';
 import SearchContext from '../../context/search-context';
 import CurrentVideoContext from '../../context/current-video-context';
+import AuthProvider from '../../Providers/Auth';
 import { ThemeContext } from '../../context/theme-context';
-//import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from '../globalStyles';
@@ -13,6 +14,8 @@ import Heading from '../Heading';
 import MainContainer from '../MainContainer';
 import VideosContainer from '../VideosContainer';
 import VideoDetailsView from '../VideoDetailsView';
+import NotFound from '../../pages/NotFound/NotFound';
+import LoginPage from '../../pages/Login/Login.page';
 
 function App() {
   const theme = useContext(ThemeContext);
@@ -21,37 +24,48 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('wizeline');
   const value = { searchQuery, setSearchQuery };
 
-  const [isActive, setIsActive] = useState(false);
-
   const [videoDetails, setVideoDetails] = useState({
     id: '',
     title: '',
     description: '',
-    relatedVideos: [],
   });
 
   const videoValue = {
-    isActive,
-    setIsActive,
     videoDetails,
     setVideoDetails,
   };
   return (
-    <ThemeProvider theme={darkMode === false ? lightTheme : darkTheme}>
-      <>
-        <GlobalStyles />
-        <CurrentVideoContext.Provider value={videoValue}>
-          <SearchContext.Provider value={value}>
-            <Header />
-            <MainContainer>
-              {!isActive && <Heading title="Welcome to the challenge!" />}
-              {!isActive && <VideosContainer />}
-              {isActive && <VideoDetailsView />}
-            </MainContainer>
-          </SearchContext.Provider>
-        </CurrentVideoContext.Provider>
-      </>
-    </ThemeProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <ThemeProvider theme={darkMode === false ? lightTheme : darkTheme}>
+          <>
+            <GlobalStyles />
+            <CurrentVideoContext.Provider value={videoValue}>
+              <SearchContext.Provider value={value}>
+                <Header />
+                <MainContainer>
+                  <Switch>
+                    <Route exact path="/">
+                      <Heading title="Welcome to the challenge!" />
+                      <VideosContainer />
+                    </Route>
+                    <Route path="/video/:videoId">
+                      <VideoDetailsView />
+                    </Route>
+                    <Route path="/login">
+                      <LoginPage />
+                    </Route>
+                    <Route path="*">
+                      <NotFound />
+                    </Route>
+                  </Switch>
+                </MainContainer>
+              </SearchContext.Provider>
+            </CurrentVideoContext.Provider>
+          </>
+        </ThemeProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 

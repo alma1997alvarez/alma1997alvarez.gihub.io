@@ -22,16 +22,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/8</span>
+                <span class='fraction'>2/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
@@ -43,9 +43,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/8</span>
+                <span class='fraction'>2/7</span>
             </div>
         
             
@@ -114,7 +114,24 @@
 <a name='L56'></a><a href='#L56'>56</a>
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,6 +156,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -146,13 +171,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -175,8 +203,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState, useContext } from 'react';
 import SearchContext from '../../context/search-context';
 import CurrentVideoContext from '../../context/current-video-context';
+import AuthProvider from '../../Providers/Auth';
 import { ThemeContext } from '../../context/theme-context';
-//import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 &nbsp;
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from '../globalStyles';
@@ -187,6 +216,8 @@ import Heading from '../Heading';
 import MainContainer from '../MainContainer';
 import VideosContainer from '../VideosContainer';
 import VideoDetailsView from '../VideoDetailsView';
+import NotFound from '../../pages/NotFound/NotFound';
+import LoginPage from '../../pages/Login/Login.page';
 &nbsp;
 function App() {
   const theme = useContext(ThemeContext);
@@ -195,37 +226,48 @@ function App() {
   const [searchQuery, setSearchQuery] = <span class="cstat-no" title="statement not covered" >useState('wizeline');</span>
   const value = <span class="cstat-no" title="statement not covered" >{ searchQuery, setSearchQuery };</span>
 &nbsp;
-  const [isActive, setIsActive] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
-&nbsp;
   const [videoDetails, setVideoDetails] = <span class="cstat-no" title="statement not covered" >useState({</span>
     id: '',
     title: '',
     description: '',
-    relatedVideos: [],
   });
 &nbsp;
   const videoValue = <span class="cstat-no" title="statement not covered" >{</span>
-    isActive,
-    setIsActive,
     videoDetails,
     setVideoDetails,
   };
 <span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;ThemeProvider theme={darkMode === false ? lightTheme : darkTheme}&gt;
-      &lt;&gt;
-        &lt;GlobalStyles /&gt;
-        &lt;CurrentVideoContext.Provider value={videoValue}&gt;
-          &lt;SearchContext.Provider value={value}&gt;
-            &lt;Header /&gt;
-            &lt;MainContainer&gt;
-              {!isActive &amp;&amp; &lt;Heading title="Welcome to the challenge!" /&gt;}
-              {!isActive &amp;&amp; &lt;VideosContainer /&gt;}
-              {isActive &amp;&amp; &lt;VideoDetailsView /&gt;}
-            &lt;/MainContainer&gt;
-          &lt;/SearchContext.Provider&gt;
-        &lt;/CurrentVideoContext.Provider&gt;
-      &lt;/&gt;
-    &lt;/ThemeProvider&gt;
+    &lt;BrowserRouter&gt;
+      &lt;AuthProvider&gt;
+        &lt;ThemeProvider theme={darkMode === false ? lightTheme : darkTheme}&gt;
+          &lt;&gt;
+            &lt;GlobalStyles /&gt;
+            &lt;CurrentVideoContext.Provider value={videoValue}&gt;
+              &lt;SearchContext.Provider value={value}&gt;
+                &lt;Header /&gt;
+                &lt;MainContainer&gt;
+                  &lt;Switch&gt;
+                    &lt;Route exact path="/"&gt;
+                      &lt;Heading title="Welcome to the challenge!" /&gt;
+                      &lt;VideosContainer /&gt;
+                    &lt;/Route&gt;
+                    &lt;Route path="/video/:videoId"&gt;
+                      &lt;VideoDetailsView /&gt;
+                    &lt;/Route&gt;
+                    &lt;Route path="/login"&gt;
+                      &lt;LoginPage /&gt;
+                    &lt;/Route&gt;
+                    &lt;Route path="*"&gt;
+                      &lt;NotFound /&gt;
+                    &lt;/Route&gt;
+                  &lt;/Switch&gt;
+                &lt;/MainContainer&gt;
+              &lt;/SearchContext.Provider&gt;
+            &lt;/CurrentVideoContext.Provider&gt;
+          &lt;/&gt;
+        &lt;/ThemeProvider&gt;
+      &lt;/AuthProvider&gt;
+    &lt;/BrowserRouter&gt;
   );
 }
 &nbsp;
@@ -237,7 +279,7 @@ export default App;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jan 17 2022 17:22:40 GMT-0600 (Central Standard Time)
+                at Tue Jan 18 2022 20:06:01 GMT-0600 (Central Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
