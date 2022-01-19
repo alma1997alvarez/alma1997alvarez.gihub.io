@@ -9,7 +9,6 @@ import isFavourite from '../../utils/isFavourite';
 
 const VideoDetailsCard = ({ videoId }) => {
   const videoIsFaved = isFavourite(videoId);
-
   const [favStatus, setFavStatus] = useState(videoIsFaved);
 
   const addToFavourites = () => {
@@ -51,7 +50,7 @@ const VideoDetailsCard = ({ videoId }) => {
       ></VideoDetailsIframe>
       <h1>{title}</h1>
       <p>{description}</p>
-      {videoIsFaved ? (
+      {favStatus ? (
         <Button onClickFn={removeFromFavourites}>Remove from favourites</Button>
       ) : (
         <Button onClickFn={addToFavourites}>Add to favourites</Button>
