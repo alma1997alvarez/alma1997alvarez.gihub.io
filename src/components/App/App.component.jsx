@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import SearchContext from '../../context/search-context';
 import CurrentVideoContext from '../../context/current-video-context';
+import SessionDetailsContext from '../../context/session-details-context';
 import AuthProvider from '../../Providers/Auth';
 import { ThemeContext } from '../../context/theme-context';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -29,39 +30,51 @@ function App() {
     title: '',
     description: '',
   });
-
   const videoValue = {
     videoDetails,
     setVideoDetails,
   };
+
+  const [sessionDetails, setSessionDetails] = useState({
+    id: '',
+    name: '',
+    avatar: '',
+  });
+  const sessionValue = {
+    sessionDetails,
+    setSessionDetails,
+  };
+
   return (
     <BrowserRouter>
       <AuthProvider>
         <ThemeProvider theme={darkMode === false ? lightTheme : darkTheme}>
           <>
             <GlobalStyles />
-            <CurrentVideoContext.Provider value={videoValue}>
-              <SearchContext.Provider value={value}>
-                <Header />
-                <MainContainer>
-                  <Switch>
-                    <Route exact path="/">
-                      <Heading title="Welcome to the challenge!" />
-                      <VideosContainer />
-                    </Route>
-                    <Route path="/video/:videoId">
-                      <VideoDetailsView />
-                    </Route>
-                    <Route path="/login">
-                      <LoginPage />
-                    </Route>
-                    <Route path="*">
-                      <NotFound />
-                    </Route>
-                  </Switch>
-                </MainContainer>
-              </SearchContext.Provider>
-            </CurrentVideoContext.Provider>
+            <SessionDetailsContext.Provider value={sessionValue}>
+              <CurrentVideoContext.Provider value={videoValue}>
+                <SearchContext.Provider value={value}>
+                  <Header />
+                  <MainContainer>
+                    <Switch>
+                      <Route exact path="/">
+                        <Heading title="Welcome to the challenge!" />
+                        <VideosContainer />
+                      </Route>
+                      <Route path="/video/:videoId">
+                        <VideoDetailsView />
+                      </Route>
+                      <Route path="/login">
+                        <LoginPage />
+                      </Route>
+                      <Route path="*">
+                        <NotFound />
+                      </Route>
+                    </Switch>
+                  </MainContainer>
+                </SearchContext.Provider>
+              </CurrentVideoContext.Provider>
+            </SessionDetailsContext.Provider>
           </>
         </ThemeProvider>
       </AuthProvider>
