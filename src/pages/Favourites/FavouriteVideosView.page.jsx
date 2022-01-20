@@ -1,6 +1,7 @@
 import React from 'react';
 import VideoCard from '../../components/VideoCard';
 import Heading from '../../components/Heading';
+import { VideosContainerStyled } from '../../components/VideosContainer/VideosContainer.styled';
 
 const FavouriteVideosView = () => {
   const favouriteVideos = JSON.parse(
@@ -10,17 +11,19 @@ const FavouriteVideosView = () => {
   return (
     <>
       <Heading title="These are your favourite videos!" />
-      {Object.entries(favouriteVideos).map(([id, video]) => {
-        return (
-          <VideoCard
-            imgsrc={video.imgsrc}
-            title={video.title}
-            description={video.description}
-            id={id}
-            key={`${id}`}
-          ></VideoCard>
-        );
-      })}
+      <VideosContainerStyled>
+        {Object.entries(favouriteVideos).map(([id, video]) => {
+          return (
+            <VideoCard
+              imgsrc={video.imgsrc}
+              title={video.title}
+              description={video.description}
+              id={id}
+              key={`${id}`}
+            ></VideoCard>
+          );
+        })}
+      </VideosContainerStyled>
     </>
   );
 };

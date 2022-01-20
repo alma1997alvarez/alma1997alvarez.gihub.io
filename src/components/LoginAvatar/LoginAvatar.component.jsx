@@ -8,7 +8,7 @@ const LoginAvatar = ({ avatarUrl = '', name = '' }) => {
   const clickHandler = () => {
     history.push('/login');
   };
-  console.log(avatarUrl);
+
   return (
     <AvatarImg
       src={avatarUrl ? avatarUrl : defaultAvatar}

@@ -13,15 +13,12 @@ const VideoDetailsCard = ({ videoId }) => {
     currentVideoContext;
 
   const isFaved = isFavourite(videoId);
-  console.log('isFaved', isFaved);
-
   const [favStatus, setFavStatus] = useState(isFaved);
-  console.log('favStatus', favStatus);
 
   // TODO: check with John whether this is implemented correctly.
   useEffect(() => {
     setFavStatus(isFaved);
-  });
+  }, [isFaved]);
 
   const addToFavourites = () => {
     const oldFavourites = JSON.parse(

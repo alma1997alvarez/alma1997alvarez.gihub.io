@@ -3,6 +3,7 @@ import SearchContext from '../../context/search-context';
 import CurrentVideoContext from '../../context/current-video-context';
 import SessionDetailsContext from '../../context/session-details-context';
 import AuthProvider from '../../Providers/Auth';
+import { AUTH_SESSION_DETAILS } from '../../utils/constants';
 import { ThemeContext } from '../../context/theme-context';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -14,12 +15,18 @@ import Header from '../Header';
 import MainContainer from '../MainContainer';
 import VideosContainer from '../VideosContainer';
 import VideoDetailsView from '../VideoDetailsView';
+import Private from '../Private';
 
 import NotFound from '../../pages/NotFound/NotFound';
 import LoginPage from '../../pages/Login/Login.page';
 import FavouriteVideosView from '../../pages/Favourites/FavouriteVideosView.page';
 
 function App() {
+  const loggedIn =
+    localStorage.getItem(AUTH_SESSION_DETAILS) ||
+    '{"id":"","name":"","avatarUrl":""}';
+
+  const loggedUserDetails = JSON.parse(loggedIn);
   const theme = useContext(ThemeContext);
   const { state: { darkMode = false } = {} } = theme;
 
@@ -38,9 +45,9 @@ function App() {
   };
 
   const [sessionDetails, setSessionDetails] = useState({
-    id: '',
-    name: '',
-    avatarUrl: '',
+    id: loggedUserDetails.id,
+    name: loggedUserDetails.name,
+    avatarUrl: loggedUserDetails.avatarUrl,
   });
   const sessionValue = {
     sessionDetails,
@@ -65,12 +72,12 @@ function App() {
                       <Route path="/video/:videoId">
                         <VideoDetailsView />
                       </Route>
-                      <Route path="/login">
+                      <Route exact path="/login">
                         <LoginPage />
                       </Route>
-                      <Route path="/favourites">
+                      <Private exact path="/favourites">
                         <FavouriteVideosView />
-                      </Route>
+                      </Private>
                       <Route path="*">
                         <NotFound />
                       </Route>

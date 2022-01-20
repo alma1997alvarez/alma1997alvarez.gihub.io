@@ -14,7 +14,7 @@ const MenuContainer = styled.div`
   align-items: center;
 `;
 
-const NavItem = styled.a`
+const NavItem = styled.div`
   cursor: pointer;
 `;
 
