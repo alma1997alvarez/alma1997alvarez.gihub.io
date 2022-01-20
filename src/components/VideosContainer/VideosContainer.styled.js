@@ -9,8 +9,6 @@ const VideosContainerStyled = styled.section`
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: center;
-  //display: grid;
-  //grid-template-columns: repeat(4, 1fr);
 `;
 
 export { VideosContainerStyled };

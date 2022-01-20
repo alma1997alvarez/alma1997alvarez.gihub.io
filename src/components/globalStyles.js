@@ -11,7 +11,21 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.articleBackground};
   }
 
+  article:hover{
+    background: ${({ theme }) => theme.hoverArticle};
+  }
+
   p {
     color: ${({ theme }) => theme.para};
+  }
+
+  button {
+    background: ${({ theme }) => theme.buttonBackground};
+    color: ${({ theme }) => theme.text};
+    border:none;
+  }
+
+  button:hover {
+    background: ${({ theme }) => theme.buttonHoverBackground};
   }
   `;

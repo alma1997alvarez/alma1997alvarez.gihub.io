@@ -1,6 +1,7 @@
 import React from 'react';
 //import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CurrentVideoContext from '../../context/current-video-context';
+import { useHistory } from 'react-router-dom';
 import {
   VideoCardStyled,
   VideoThumbnail,
@@ -9,6 +10,7 @@ import {
 } from './VideoCard.styled';
 
 const VideoCard = (props) => {
+  let history = useHistory();
   const currentVideoContext = React.useContext(CurrentVideoContext);
   const {
     id = '',
@@ -22,8 +24,10 @@ const VideoCard = (props) => {
       id: id,
       title: title,
       description: description,
+      imgsrc: imgsrc,
     });
-    currentVideoContext.setIsActive(true);
+    history.push(`/video/${id}`);
+    window.scrollTo(0, 0);
   };
 
   return (

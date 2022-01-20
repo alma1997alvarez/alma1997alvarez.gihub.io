@@ -1,9 +1,7 @@
 import React from 'react';
 
 const CurrentVideoContext = React.createContext({
-  isActive: false,
-  setIsActive: function () {},
-  videoDetails: { id: '', title: '', description: '', relatedVideos: [] },
+  videoDetails: { id: '', title: '', description: '', imgsrc: '' },
   setVideoDetails: function () {},
 });
 

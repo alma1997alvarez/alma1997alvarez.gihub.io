@@ -1,13 +1,20 @@
 import React from 'react';
-//import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import defaultAvatar from '../../assets/defaultavatar.jpeg';
 import { AvatarImg } from './LoginAvatar.styled';
 
-const LoginAvatar = (props) => {
+const LoginAvatar = ({ avatarUrl = '', name = '' }) => {
+  const history = useHistory();
+  const clickHandler = () => {
+    history.push('/login');
+  };
+
   return (
     <AvatarImg
-      src={props.avatarUrl ? props.avatarUrl : defaultAvatar}
+      src={avatarUrl ? avatarUrl : defaultAvatar}
       alt="logged in user image"
+      onClick={clickHandler}
+      title={name ? `${name} logged in` : 'not logged in'}
     ></AvatarImg>
   );
 };

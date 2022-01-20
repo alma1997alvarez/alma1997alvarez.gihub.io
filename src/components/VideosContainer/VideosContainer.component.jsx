@@ -4,6 +4,7 @@ import { VideosContainerStyled } from './VideosContainer.styled';
 import useFetchYoutubeVideos from '../../hooks/useFetchYoutubeVideos';
 import usePopulateVideoCards from '../../hooks/usePopulateVideoCards';
 import SearchContext from '../../context/search-context';
+import Heading from '../Heading';
 
 const VideosContainer = () => {
   const searchContext = useContext(SearchContext);
@@ -17,6 +18,7 @@ const VideosContainer = () => {
 
   return (
     <>
+      <Heading title="Welcome to the challenge!" />
       <VideosContainerStyled data-testid="videos-container-component">
         {videoCards}
       </VideosContainerStyled>
