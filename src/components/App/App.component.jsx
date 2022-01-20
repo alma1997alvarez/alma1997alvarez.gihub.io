@@ -11,12 +11,13 @@ import { GlobalStyles } from '../globalStyles';
 import { lightTheme, darkTheme } from '../../Themes';
 
 import Header from '../Header';
-import Heading from '../Heading';
 import MainContainer from '../MainContainer';
 import VideosContainer from '../VideosContainer';
 import VideoDetailsView from '../VideoDetailsView';
+
 import NotFound from '../../pages/NotFound/NotFound';
 import LoginPage from '../../pages/Login/Login.page';
+import FavouriteVideosView from '../../pages/Favourites/FavouriteVideosView.page';
 
 function App() {
   const theme = useContext(ThemeContext);
@@ -29,6 +30,7 @@ function App() {
     id: '',
     title: '',
     description: '',
+    imgsrc: '',
   });
   const videoValue = {
     videoDetails,
@@ -58,7 +60,6 @@ function App() {
                   <MainContainer>
                     <Switch>
                       <Route exact path="/">
-                        <Heading title="Welcome to the challenge!" />
                         <VideosContainer />
                       </Route>
                       <Route path="/video/:videoId">
@@ -66,6 +67,9 @@ function App() {
                       </Route>
                       <Route path="/login">
                         <LoginPage />
+                      </Route>
+                      <Route path="/favourites">
+                        <FavouriteVideosView />
                       </Route>
                       <Route path="*">
                         <NotFound />

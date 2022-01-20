@@ -6,6 +6,7 @@ const BurgerContainer = styled.div`
   flex-direction: column;
   width: 35px;
   margin: 1rem;
+  z-index: 2;
 
   @media (max-width: 715px) {
     width: 10vw;

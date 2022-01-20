@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 const MenuContainer = styled.div`
-  position: absolute;
-  top: 62px;
+  position: fixed;
+  top: 0px;
   left: 0;
-  height: calc(100vh - 62px);
+  height: calc(100vh);
   width: 300px;
   z-index: 1;
-  background-color: hotpink;
+  background-color: #9c90b1;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

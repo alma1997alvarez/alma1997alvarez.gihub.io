@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import CurrentVideoContext from '../../context/current-video-context';
 import {
   VideoDetailsIframe,
@@ -8,15 +8,30 @@ import Button from '../Button/Button.component';
 import isFavourite from '../../utils/isFavourite';
 
 const VideoDetailsCard = ({ videoId }) => {
-  const videoIsFaved = isFavourite(videoId);
-  const [favStatus, setFavStatus] = useState(videoIsFaved);
+  const currentVideoContext = useContext(CurrentVideoContext);
+  const { videoDetails: { title = '', description = '', imgsrc = '' } = {} } =
+    currentVideoContext;
+
+  const isFaved = isFavourite(videoId);
+  console.log('isFaved', isFaved);
+
+  const [favStatus, setFavStatus] = useState(isFaved);
+  console.log('favStatus', favStatus);
+
+  // TODO: check with John whether this is implemented correctly.
+  useEffect(() => {
+    setFavStatus(isFaved);
+  });
 
   const addToFavourites = () => {
     const oldFavourites = JSON.parse(
       localStorage.getItem('favourites_object') || '{}'
     );
 
-    const newFavourites = { ...oldFavourites, [videoId]: videoId };
+    const newFavourites = {
+      ...oldFavourites,
+      [videoId]: { imgsrc: imgsrc, title: title, description: description },
+    };
 
     localStorage.setItem('favourites_object', JSON.stringify(newFavourites));
 
@@ -34,10 +49,6 @@ const VideoDetailsCard = ({ videoId }) => {
 
     setFavStatus(false);
   };
-
-  const currentVideoContext = useContext(CurrentVideoContext);
-  const { videoDetails: { title = '', description = '' } = {} } =
-    currentVideoContext;
 
   return (
     <VideoDetailsCardStyled>

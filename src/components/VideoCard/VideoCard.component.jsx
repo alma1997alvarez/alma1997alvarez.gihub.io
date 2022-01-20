@@ -24,6 +24,7 @@ const VideoCard = (props) => {
       id: id,
       title: title,
       description: description,
+      imgsrc: imgsrc,
     });
     history.push(`/video/${id}`);
     window.scrollTo(0, 0);
