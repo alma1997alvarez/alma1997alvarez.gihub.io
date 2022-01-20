@@ -1,18 +1,25 @@
-import LoginAvatar from './LoginAvatar.component';
+import MenuModal from '.';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-describe('LoginAvatar component', () => {
-  it('should be displayed as an image', () => {
+import AuthProvider from '../../Providers/Auth';
+
+describe('MenuModal component', () => {
+  it('should display at least the Home nav link', () => {
     //Arrange
     render(
-      <LoginAvatar avatarUrl="https://static.vecteezy.com/packs/media/components/global/search-explore-nav/img/vectors/term-bg-1-666de2d941529c25aa511dc18d727160.jpg" />
+      <AuthProvider>
+        <Router>
+          <MenuModal />
+        </Router>
+      </AuthProvider>
     );
-    const avatarImageElement = screen.getByRole('img');
+    const menuElement = screen.getByText('Home');
 
     //Act
 
     //Assert
-    expect(avatarImageElement).toBeInTheDocument();
+    expect(menuElement).toBeInTheDocument();
   });
 });

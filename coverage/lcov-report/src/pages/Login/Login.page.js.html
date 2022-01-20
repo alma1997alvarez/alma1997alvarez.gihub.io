@@ -24,7 +24,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>0/16</span>
             </div>
         
             
@@ -45,7 +45,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>0/16</span>
             </div>
         
             
@@ -126,7 +126,17 @@
 <a name='L68'></a><a href='#L68'>68</a>
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -148,6 +158,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -199,8 +213,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../Providers/Auth';
+import { AUTH_SESSION_DETAILS } from '../../utils/constants';
+import { LoginInput } from './Login.styled';
 import loginApi from './Login.api';
 import Heading from '../../components/Heading';
+import Button from '../../components/Button/Button.component';
 import SessionDetailsContext from '../../context/session-details-context';
 &nbsp;
 function <span class="fstat-no" title="function not covered" >LoginPage(</span>) {
@@ -218,6 +235,10 @@ function <span class="fstat-no" title="function not covered" >LoginPage(</span>)
       );
 <span class="cstat-no" title="statement not covered" >      sessionDetailsContext.setSessionDetails(sessionDetails);</span>
 <span class="cstat-no" title="statement not covered" >      login();</span>
+<span class="cstat-no" title="statement not covered" >      localStorage.setItem(</span>
+        AUTH_SESSION_DETAILS,
+        JSON.stringify(sessionDetails)
+      );
 <span class="cstat-no" title="statement not covered" >      history.push('/');</span>
     } catch (error) {
 <span class="cstat-no" title="statement not covered" >      setError(error.message);</span>
@@ -236,8 +257,8 @@ function <span class="fstat-no" title="function not covered" >LoginPage(</span>)
       &lt;form onSubmit={authenticate} className="login-form"&gt;
         &lt;div className="form-group"&gt;
           &lt;label htmlFor="username"&gt;
-            &lt;strong&gt;username &lt;/strong&gt;
-            &lt;input
+            &lt;strong&gt;Username: &lt;/strong&gt;
+            &lt;LoginInput
               required
               type="text"
               id="username"
@@ -248,8 +269,8 @@ function <span class="fstat-no" title="function not covered" >LoginPage(</span>)
         &lt;/div&gt;
         &lt;div className="form-group"&gt;
           &lt;label htmlFor="password"&gt;
-            &lt;strong&gt;password &lt;/strong&gt;
-            &lt;input
+            &lt;strong&gt;Password: &lt;/strong&gt;
+            &lt;LoginInput
               required
               type="password"
               id="password"
@@ -259,7 +280,7 @@ function <span class="fstat-no" title="function not covered" >LoginPage(</span>)
           &lt;/label&gt;
         &lt;/div&gt;
         &lt;p&gt;{error}&lt;/p&gt;
-        &lt;button type="submit"&gt;login&lt;/button&gt;
+        &lt;Button type="submit"&gt;Login&lt;/Button&gt;
       &lt;/form&gt;
     &lt;/section&gt;
   );
@@ -273,7 +294,7 @@ export default LoginPage;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Jan 19 2022 16:42:13 GMT-0600 (Central Standard Time)
+                at Wed Jan 19 2022 21:42:37 GMT-0600 (Central Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

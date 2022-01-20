@@ -1,7 +1,7 @@
 import DarkModeToggle from './DarkModeToggle.component';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import ThemeProvider from '../../context/theme-context';
+import { ThemeProvider } from '../../context/theme-context';
 
 const customRender = (component) => {
   return render(<ThemeProvider>{component}</ThemeProvider>);
